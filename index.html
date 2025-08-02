@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raja Kumar | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin: 1.5rem 0;
+        }
+
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content ul {
+            padding-left: 1.5rem;
+        }
+
+        .project-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .recommendations-list {
+            margin-bottom: 2rem;
+        }
+
+        .recommendation {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .recommendation:before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -1rem;
+            left: 0.5rem;
+            color: rgba(52, 152, 219, 0.2);
+            font-family: Georgia, serif;
+        }
+
+        .recommendation-form {
+            background-color: #f5f7fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .popup-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .ok-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .ok-btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin: 0 auto;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Raja Kumar</h1>
+        <div class="contact-info">
+            <div><i class="fas fa-envelope"></i> 37rajakumar@gmail.com</div>
+            <div><i class="fas fa-phone"></i> +91 7557728410</div>
+        </div>
+        <div class="divider"></div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#about" class="nav-item"><i class="fas fa-user"></i> About Me</a>
+            <a href="#skills" class="nav-item"><i class="fas fa-code"></i> Skills</a>
+            <a href="#projects" class="nav-item"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="#recommendations" class="nav-item"><i class="fas fa-comments"></i> Recommendations</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="profile-img">RK</div>
+                <div class="about-text">
+                    <p>Hi, I'm Raja Kumar!</p>
+                    <p>I am a full stack developer with 3 years of experience in both application and presentation layers. I have worked on applications and microservices deployed on AWS and Google Cloud. I specialize in creating efficient, scalable solutions using modern technologies.</p>
+                    <p>With expertise in both front-end and back-end development, I create seamless user experiences while ensuring robust server-side functionality. I'm passionate about solving complex problems and continuously learning new technologies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>HTML/CSS</h3>
+                    <div class="experience">2 years experience</div>
+                    <p>Proficient in creating responsive layouts with modern CSS techniques including Flexbox and Grid.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <div class="experience">1 years experience</div>
+                    <p>Expert in vanilla JS and modern frameworks. Strong understanding of ES6+ features.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>React</h3>
+                    <div class="experience">1.5 years experience</div>
+                    <p>Experience with React ecosystem including Redux, Context API, and React Router.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Node.js</h3>
+                    <div class="experience">1 years experience</div>
+                    <p>Building RESTful APIs and server-side applications with Express and related technologies.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Java</h3>
+                    <div class="experience">0.5 years experience</div>
+                    <p>Developing backend services and automation scripts using Python and Django framework.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Database Systems</h3>
+                    <div class="experience">2 years experience</div>
+                    <p>Experience with SQL (PostgreSQL, MySQL) and NoSQL (MongoDB) databases.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>E-commerce Platform</h3>
+                    </div>
+                    <div class="project-content">
+                        <ul>
+                            <li>Developed a full-featured e-commerce platform with React frontend and Node.js backend</li>
+                            <li>Integrated payment processing using Stripe API</li>
+                            <li>Implemented user authentication and product management system</li>
+                            <li>Optimized performance for handling thousands of products</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Task Management System</h3>
+                    </div>
+                    <div class="project-content">
+                        <ul>
+                            <li>Created a collaborative task management application with real-time updates</li>
+                            <li>Utilized WebSockets for live collaboration features</li>
+                            <li>Designed intuitive drag-and-drop interface for task organization</li>
+                            <li>Implemented user roles and permissions system</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Health & Fitness Tracker</h3>
+                    </div>
+                    <div class="project-content">
+                        <ul>
+                            <li>Built a mobile-responsive fitness application with workout planning</li>
+                            <li>Integrated with wearable device APIs to track user activity</li>
+                            <li>Developed data visualization for progress tracking</li>
+                            <li>Created personalized recommendation engine based on user goals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations">
+            <h2>Recommendations</h2>
+            <div class="recommendations-list">
+                <div class="recommendation">
+                    <p>"Raja is a very quick learner and quickly grasps key concepts of Web development. He has a great attitude and is an excellent team player. He has a curious mind and asks the right questions. He takes initiative within a team and has potential to lead the team."</p>
+                </div>
+                <div class="recommendation">
+                    <p>"Working with Raja has been an awesome experience. He is highly knowledgeable and always goes the extra step to make sure everything is right. For any future projects that need his expertise I would definitely want to work with him again."</p>
+                </div>
+                <div class="recommendation">
+                    <p>"I had worked along with Raja during the initial phase of our venture which needed Web development. He is a committed resource who has in depth knowledge about the domain. He will be an asset for any organisation!"</p>
+                </div>
+            </div>
+
+            <div class="recommendation-form">
+                <h3>Leave a Recommendation</h3>
+                <form id="recommendationForm">
+                    <div class="form-group">
+                        <label for="name">Name (Optional)</label>
+                        <input type="text" id="name" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Your recommendation" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Recommendation</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h3>Thank You!</h3>
+            <p>Thank you for leaving a recommendation!</p>
+            <button class="ok-btn">Ok</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Raja Kumar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Form submission and popup functionality
+        document.getElementById('recommendationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show the popup
+            document.getElementById('popup').style.display = 'flex';
+            
+            // Clear the form
+            this.reset();
+        });
+
+        // Close popup when clicking the OK button
+        document.querySelector('.ok-btn').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
